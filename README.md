@@ -29,6 +29,15 @@ pip install -r requirements.txt
 ## Run Project
 python src/main.py
 
+#### Demo Output
+
+### Wildlife Detection Feed
+![Detection Demo](assets/detection_demo.png)
+
+### Detection Analytics Summary
+![Analytics Summary](assets/analytics_summary.png)
+
+
 ## Future Upgrades
 - CSV analytics export
 - Unique object tracking
