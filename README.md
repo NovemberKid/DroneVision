@@ -7,7 +7,9 @@ DroneVision is an AI-powered wildlife monitoring system that processes drone foo
 - Real-time wildlife detection
 - YOLOv8 object recognition
 - Professional custom bounding box annotations
+- Enhanced high-visibility yellow annotations
 - Species detection analytics summary
+- CSV analytics export
 - Confidence-based filtering
 
 ## Tech Stack
@@ -39,7 +41,6 @@ python src/main.py
 
 
 ## Future Upgrades
-- CSV analytics export
 - Unique object tracking
 - Dashboard visualization
 - Ranked species intelligence

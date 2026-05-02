@@ -1,11 +1,20 @@
 import cv2
 from ultralytics import YOLO
+import csv
+
+
+
 
 # Load pretrained YOLOv8 nano model
 model = YOLO("yolov8n.pt")
 
 # Path to wildlife drone footage
 video_path = "videos/wildlife_sample4.mp4"
+
+#adding csv output path
+output_csv = "outputs/detection_summary.csv"
+
+
 
 # capture the object and read the video
 cap = cv2.VideoCapture(video_path)
@@ -52,7 +61,7 @@ while True:
             frame,
             (x1, y1),
             (x2, y2),
-            (0, 255, 0),
+            (255, 255, 0),
             2
         )
 
@@ -63,7 +72,7 @@ while True:
             (x1, y1 - 10),
             cv2.FONT_HERSHEY_SIMPLEX,
             0.6,
-            (0, 255, 0),
+            (255, 255, 0),
             2
         )
 
@@ -77,6 +86,18 @@ while True:
 # Release video resources
 cap.release()
 cv2.destroyAllWindows()
+
+
+with open(output_csv, mode="w", newline="") as file:
+    writer = csv.writer(file)
+
+    # Header row
+    writer.writerow(["Animal", "Count"])
+
+    # Detection data rows
+    for animal, count in detection_count.items():
+        writer.writerow([animal, count])
+
 
 # Printing our final wildlife detection summary
 print("\nDetection Summary:")
